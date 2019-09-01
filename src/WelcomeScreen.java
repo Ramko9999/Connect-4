@@ -8,7 +8,6 @@ public class WelcomeScreen extends JFrame {
     private JLabel header;
     private JButton Login;
     private JButton Register;
-    private JButton QuickPlay;
 
     public WelcomeScreen(){
 
@@ -18,7 +17,6 @@ public class WelcomeScreen extends JFrame {
         this.setSize(600,600);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Login.setForeground(Color.YELLOW);Login.setBackground(Color.BLACK);Login.setBorderPainted(false);Login.setOpaque(true);
-        QuickPlay.setForeground(Color.YELLOW);QuickPlay.setBackground(Color.BLACK);QuickPlay.setBorderPainted(false);QuickPlay.setOpaque(true);
         Register.setForeground(Color.YELLOW); Register.setBackground(Color.BLACK);Register.setBorderPainted(false);Register.setOpaque(true);
         listen_for_action();
 
@@ -43,18 +41,6 @@ public class WelcomeScreen extends JFrame {
                 try{
                     super.finalize();
                     new RegisterScreen();
-                }
-                catch(Throwable t){
-                    System.out.println(t.getCause());
-                }
-            }
-        });
-        QuickPlay.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try{
-                    new MenuScreen(null);
-
                 }
                 catch(Throwable t){
                     System.out.println(t.getCause());

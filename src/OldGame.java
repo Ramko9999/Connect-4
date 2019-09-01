@@ -1,7 +1,10 @@
 import org.bson.Document;
 
 import javax.imageio.ImageIO;
+import javax.print.DocFlavor;
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 
 public class OldGame extends Game {

@@ -2,7 +2,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import java.util.Scanner;
 
 
 public class Server {
@@ -18,15 +18,13 @@ public class Server {
             server = new ServerSocket(PORT);
         }
         catch(Exception e){
-            System.err.println("error occured when it came to hosting server");
+            e.printStackTrace();
         }
     }
 
     public void listen() throws InterruptedException {
         try {
-
             System.out.println("Server is looking for connection...");
-            System.out.println(server.getLocalPort());
             connection = server.accept();
             System.out.println("Server has accepted connection");
             input = new DataInputStream(connection.getInputStream());

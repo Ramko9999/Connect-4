@@ -3,7 +3,7 @@ import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
+public class Client{
 
     private Socket clientSocket;
     public DataInputStream input; //reading data
@@ -22,6 +22,7 @@ public class Client {
             System.out.println(e);
         }
     }
+
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         String host = keyboard.nextLine();

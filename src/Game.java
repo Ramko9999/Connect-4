@@ -14,7 +14,7 @@ public class Game extends JFrame{
     JButton[][] places = new JButton[6][7];
     int[][] gameDrops;
     JButton[] drops = new JButton[7];
-    boolean playerRed = false;
+    boolean playerRed;
     Cursor mouse;
     Document userFile = null;
     Registrar r = new Registrar();
@@ -51,10 +51,10 @@ public class Game extends JFrame{
         for (int i = 0; i < 7; i++) {
             JButton temp = new JButton("drop  ");
             //sets the characteristics for the game
-            temp.setOpaque(true);
+            temp.setOpaque(false);
             temp.setContentAreaFilled(false); //makes the buttons invisible
-            temp.setBorderPainted(true);
-            //temp.setForeground(Color.BLACK);
+            temp.setBorderPainted(false);
+            temp.setForeground(Color.BLACK);
             panelForDrops.add(temp);
             drops[i] = temp;
 
@@ -246,8 +246,7 @@ public class Game extends JFrame{
             System.out.println();
         }
         System.out.println();
-        System.out.println();
-        System.out.println();
+
     }
 
     public void disableDropPanel(){
@@ -328,6 +327,7 @@ public class Game extends JFrame{
         //GridChecker will create the diagonals for a point in the board
         GridChecker checker = new GridChecker(g);
         ArrayList<XPoint> possibleSquares = checker.getPointList(row, col);
+        System.out.println(possibleSquares);
         if (possibleSquares.size() == 0) {
             return -1;
         }

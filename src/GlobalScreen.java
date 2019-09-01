@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class GlobalScreen extends JFrame{
     private JButton client_button;
@@ -29,6 +30,7 @@ public class GlobalScreen extends JFrame{
         port_server.setBackground(Color.BLACK); port_server.setOpaque(true);
         port_client.setEditable(false); port_server.setEditable(false); Ip.setEditable(false);
         listen_for_selection();
+
     }
 
     public void listen_for_selection(){
@@ -36,6 +38,7 @@ public class GlobalScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(isClientClicked){
+                    client_button.setForeground(Color.GRAY);
                     System.out.println("In side isClient Clicked");
                     String IP = Ip.getText();
                     String client_port = port_client.getText();
@@ -71,6 +74,7 @@ public class GlobalScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(isServerClicked){
+                    client_button.setForeground(Color.GRAY);
                     String serve_port = port_server.getText();
                     int port_number = convert_to_number(serve_port);
                     if(port_number == -9999){
@@ -78,6 +82,7 @@ public class GlobalScreen extends JFrame{
                     }
                     else{
                         try{
+                            Scanner Keyboard = new Scanner(System.in);
                             Server s = new Server(port_number);
                             s.listen();
                             new NetworkGame(null, true, false, s.input, s.output);

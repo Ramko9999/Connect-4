@@ -52,7 +52,7 @@
               <font name="Press Start 2P" size="16"/>
               <foreground color="-256"/>
               <horizontalAlignment value="0"/>
-              <text value="IPv4 Address"/>
+              <text value="localhost"/>
             </properties>
           </component>
           <component id="532f7" class="javax.swing.JTextField" binding="port_client">
@@ -65,7 +65,7 @@
               <font name="Press Start 2P" size="16"/>
               <foreground color="-256"/>
               <horizontalAlignment value="0"/>
-              <text value="PORT"/>
+              <text value="1888"/>
             </properties>
           </component>
         </children>
@@ -100,7 +100,7 @@
               <font name="Press Start 2P" size="16"/>
               <foreground color="-256"/>
               <horizontalAlignment value="0"/>
-              <text value="PORT"/>
+              <text value="1888"/>
             </properties>
           </component>
         </children>

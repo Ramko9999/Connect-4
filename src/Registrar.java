@@ -18,7 +18,6 @@ public class Registrar {
         MongoClient client = new MongoClient(mongoClientUri);
         db = client.getDatabase("Test");
 
-
     }
     public static void main(String [] args){
         Document d = new Document("test2", "test2"); //testing connection of database
