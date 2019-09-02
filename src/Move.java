@@ -31,8 +31,14 @@ public class Move {
         //check whether the move presents a game winner for the player
         this.score = Math.max(this.score, gameWinner());
 
-        System.out.println("For "  + this.player + " the score for this move is " + this.score);
 
+
+    }
+
+    @Override
+
+    public String toString(){
+        return "{ Player: "  + this.player + " Score: " + this.score + " Column: " + this.col + " }" ;
     }
 
     //check whether the move can build a potential attack
@@ -113,7 +119,7 @@ public class Move {
 
     public int positionWeighter(){
         int [] columnWeighter = {1, 3, 4, 6, 4, 3, 1};
-        int [] rowWeighter = {2, 2, 3, 4, 4, 2};
+        int [] rowWeighter = {1, 1, 2, 2, 3,3};
         return columnWeighter[col] * rowWeighter[row];
     }
 

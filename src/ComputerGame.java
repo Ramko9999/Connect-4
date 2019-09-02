@@ -9,7 +9,8 @@ import java.util.HashMap;
 
 public class ComputerGame extends Game{
 
-    JButton computerButton = new JButton("Click for Computer Move");
+    JButton computerButton = new JButton("Quick Computer Move");
+    JButton longComputerButton = new JButton("Long Computer Move");
     public ComputerGame(Document d, boolean first){
         super(d, first);
         this.setSize(612, 700);
@@ -24,6 +25,25 @@ public class ComputerGame extends Game{
     }
 
     public void clickForComputer(){
+        longComputerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int player = 0;
+                int whoMoved = 0;
+                String [] files = { "yellow.png", "red.png"};
+                if(playerRed){
+                    player = 1;
+                    whoMoved = 2;
+                }
+                else{
+                    player = 2;
+                    whoMoved = 1;
+                }
+
+
+
+        }
+                                             });
         computerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
