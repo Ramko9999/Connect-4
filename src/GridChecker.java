@@ -79,7 +79,6 @@ public class GridChecker {
         int r = 5;
         int c = 3;
         GridChecker d = new GridChecker(a);
-        System.out.println(d.getPointList(r, c));
     }
 
 

@@ -5,10 +5,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game extends JFrame{
     JButton[][] places = new JButton[6][7];
@@ -47,7 +51,7 @@ public class Game extends JFrame{
 
     public void createDropPanel() {
         JPanel panelForDrops = new JPanel();
-        panelForDrops.setBackground(Color.BLACK);
+        panelForDrops.setBackground(Color.RED);
         for (int i = 0; i < 7; i++) {
             JButton temp = new JButton("drop  ");
             //sets the characteristics for the game
@@ -56,6 +60,7 @@ public class Game extends JFrame{
             temp.setBorderPainted(false);
             temp.setForeground(Color.BLACK);
             panelForDrops.add(temp);
+            temp.setPreferredSize(new Dimension(85, 20));
             drops[i] = temp;
 
         }
@@ -119,6 +124,8 @@ public class Game extends JFrame{
 
     }
 
+
+
     public void listenForDrops() {
         for (int i = 0; i < drops.length; i++) { //drops is the array containing the drop buttons
             final int col = i;
@@ -137,6 +144,7 @@ public class Game extends JFrame{
 
                         if (playerRed) {
 
+                            new Move(1, copyArray(gameDrops), col);
                             //if its red's turn, it will put a red image in the tile
 
                             setMoveAndChangeCursor("red.png", "yellow.png", col, row);
@@ -160,6 +168,7 @@ public class Game extends JFrame{
 
                         } else {
 
+                            new Move(2, copyArray(gameDrops), col);
                             //changes the tile to yellow and execute the same thing it did to red
                             setMoveAndChangeCursor("yellow.png", "red.png", col, row);
                             gameDrops[BottomDrop(gameDrops, col)][col] = 2;
@@ -197,6 +206,15 @@ public class Game extends JFrame{
         }
 
     }
+
+    public int[][] copyArray(int [][] array){
+        int [][] newArray = new int[array.length][];
+        for(int i = 0; i < array.length; i++){
+            newArray[i] = array[i].clone();
+        }
+        return newArray;
+    }
+
     public int BottomDrop(int[][] g, int col) { //g = the 2d array of the game, and col = designated column
         int row = -1;
         for (int i = 0; i < g.length; i++) {
@@ -327,7 +345,6 @@ public class Game extends JFrame{
         //GridChecker will create the diagonals for a point in the board
         GridChecker checker = new GridChecker(g);
         ArrayList<XPoint> possibleSquares = checker.getPointList(row, col);
-        System.out.println(possibleSquares);
         if (possibleSquares.size() == 0) {
             return -1;
         }
@@ -389,7 +406,7 @@ public class Game extends JFrame{
     }
 
     public static void main(String[] args) {
-        new Game(null, true);
+        new Game(null, true).listenForDrops();
     }
 
 
